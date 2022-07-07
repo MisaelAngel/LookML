@@ -3,12 +3,12 @@ connection: "thelook"
 # include all the views
 include: "/views/**/*.view"
 
-datagroup: mtrmisaelslookmlproject_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+datagroup: order_items_datagroup {
+  sql_trigger: SELECT MAX(order_item_id) from order_items ;;
   max_cache_age: "1 hour"
 }
 
-persist_with: mtrmisaelslookmlproject_default_datagroup
+persist_with: order_items_datagroup
 
 explore: inventory_items {
   join: products {
